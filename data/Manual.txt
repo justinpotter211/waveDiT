@@ -1,0 +1,55 @@
+About K-NET ASCII format
+
+The K-NET ASCII format is described below with an actual data file.
+----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+Origin Time       2006/01/18 23:25:00<LF>         (1) Event origin time
+Lat.              37.798<LF>                      (2) Event latitude
+Lon.              142.200<LF>                     (3) Event longitude
+Depth. (km)       36<LF>                          (4) Event depth
+Mag.              5.7<LF>                         (5) Magnitude
+Station Code      MYG002<LF>                      (6) Site code
+Station Lat.      38.7262<LF>                     (7) Site latitude
+Station Lon.      141.5109<LF>                    (8) Site longitude
+Station Height(m) 79<LF>                          (9) Site altitude
+Record Time       2006/01/18 23:25:46<LF>         (10) Recording start time
+Sampling Freq(Hz) 100Hz<LF>                       (11) Sampling frequency
+Duration Time(s)  108<LF>                         (12) Recording duration time
+Dir.              N-S<LF>                         (13) Channel number
+Scale Factor      3920(gal)/6182761<LF>           (14) Scale factor
+Max Acc. (gal)    48.060<LF>                      (15) Maximum acceleration
+Last Correction   2006/01/18 23:25:31<LF>         (16) Time of last correction
+Memo.             <LF>                            (17) Comments
+    8009     9006     7998     8001     8009     8007     8002     8005<LF>
+    8006     8003     8003     8005     8005     8003     8001     8004<LF>
+    8008     8004     7998     8002     8009     8005     8001     8002<LF>
+ :
+ :
+ :
+    8005     8003     8000     8004     8010     8008     8001     8001<LF>
+    8006     8006     8000     8000     8005     8009     8004     7999<LF>
+    8003     8007     8004     8000     8000     8005     8009     8005<LF>
+[EOF]
+----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+	
+(Line 9th) Site altitude
+The value of -9999 indicates that no site altitude data are available in database.
+(Line 10th) Recording start time
+This time includes the effect of 15-second trigger delay in the data logger. The true start time of the time series is obtained by subtracting 15 seconds from this "Recording start time."
+(Line 13th) Channel number
+The strong-motion data for K-NET sites have three data channels that correspond to three components of a seismograph. Relationship between the channels and the extension of the files are as follows.
+Channel number	Extension of file
+N-S	NS
+E-W	EW
+U-D	UD
+The strong-motion data for KiK-net sites have six channel numbers; the first three correspond to three components of a borehole seismograph and the other three correspond to those of a surface seismograph (see table below). Please note that channels 1 and 2 may be rotated from NS and EW directions due to the difficulty in adjusting the azimuth of sensors in the borehole. Orientations of Hi-net sensor, which are considered to be the same as those of KiK-net sensor installed in the same container, are available from the Hi-net website (in Japanese) and serve as a reference for KiK-net data.
+Channel number	Component	Location	Extension of file
+1	NS	Borehole	NS1
+2	EW	Borehole	EW1
+3	UD	Borehole	UD1
+4	NS	Surface	NS2
+5	EW	Surface	EW2
+6	UD	Surface	UD2
+(Line 15th) Maximum acceleration
+This value is obtained after the offset of data or the average value of all the data is subtracted.
+Strong-motion data begin at line 18th.
+Raw data of the seismograph are written as 7-digit integer with sign in eight columns per line. The acceleration time series is obtained by multiplying these data by the scale factor written in line 14th. As the data are provided without corrections, they may contain offsets.

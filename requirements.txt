@@ -1,0 +1,11 @@
+# Versions verified in the reference environment (Python 3.10, CUDA 12.8).
+# Install the torch build matching your own driver; the cu128 wheel is what was tested.
+
+torch==2.7.1
+timm==1.0.25
+numpy==2.2.6
+tqdm==4.67.3
+matplotlib==3.10.8
+
+# Optional — only needed by validation/train_pga_mlp.py
+pandas==2.3.3

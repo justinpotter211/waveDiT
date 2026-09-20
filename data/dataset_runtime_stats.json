@@ -1,0 +1,25 @@
+{
+  "dataset_name": "wavedit_runtime_defaults",
+  "computed_at_utc": "2026-05-10T06:38:14+00:00",
+  "waveform_norm_mode": "global_zscore",
+  "waveform_mean_value": -3.941020839870379e-08,
+  "waveform_std_value": 1.4593783015381432,
+  "waveform_value_count": 3142134000,
+  "waveform_sample_count": 349126,
+  "conditioning_defaults": {
+    "sta_lat_min": 18.0,
+    "sta_lat_max": 55.0,
+    "sta_lon_min": 122.0,
+    "sta_lon_max": 156.0,
+    "src_lat_min": 18.0,
+    "src_lat_max": 55.0,
+    "src_lon_min": 122.0,
+    "src_lon_max": 156.0,
+    "dep_min": -100.0,
+    "dep_max": 800.0,
+    "mag_min": -1.0,
+    "mag_max": 10.0,
+    "epi_dist_min": -100.0,
+    "epi_dist_max": 2500.0
+  }
+}
