@@ -69,11 +69,31 @@ rescaled into `[min_get, max_get]` (default `[0, 1000]`).
 
 ## Released checkpoints
 
-| Path | Size | Description |
-| --- | ---: | --- |
-| `model/waveDiT/waveDiT.pt` | 531 MB | Mainline DiT, EMA weights (`ema` key), `mainline` variant |
-| `model/VAE/VAE.pt` | 56.6 MB | All-pixel-shuffle KL-VAE decoder, latent `32 × 125`, compression R24 |
-| `model/PhaseNet/PhaseNet_Original.pt` | 1.1 MB | PhaseNet, used for P/S phase-picking evaluation only |
+The two large checkpoints are too big for git and are published as a separate download.
+Place them at the paths below after downloading — the code and the commands in this
+README resolve those exact paths.
+
+| Path | Size | SHA256 | Download |
+| --- | ---: | --- | --- |
+| `model/waveDiT/waveDiT.pt` | 531 MB | `ae7d61e77b19e5d902e7fc9ef0beef9dcea797e69ea8b75ffca19288df8e56e4` | *link TBD* |
+| `model/VAE/VAE.pt` | 56.6 MB | `c935031d84d6f7202bd501128abe55d709105a0d1e3199ab2f44954638c52bab` | *link TBD* |
+
+Verify a download before using it:
+
+```bash
+sha256sum model/waveDiT/waveDiT.pt      # macOS: shasum -a 256
+sha256sum model/VAE/VAE.pt
+```
+
+`model/PhaseNet/PhaseNet_Original.pt` (1.1 MB,
+`7f0bd2f8ba5ee387875c044fb1dae28ef7acd2747925a6bab5473d7ce88bb89c`) ships inside the
+repository, since it is small.
+
+| Checkpoint | Description |
+| --- | --- |
+| `model/waveDiT/waveDiT.pt` | Mainline DiT, EMA weights (`ema` key), `mainline` variant |
+| `model/VAE/VAE.pt` | All-pixel-shuffle KL-VAE decoder, latent `32 × 125`, compression R24 |
+| `model/PhaseNet/PhaseNet_Original.pt` | PhaseNet, used for P/S phase-picking evaluation only |
 
 `model/waveDiT/waveDiT.pt` configuration (stored in the checkpoint itself):
 
@@ -93,10 +113,6 @@ rescaled into `[min_get, max_get]` (default `[0, 1000]`).
 
 `model/VAE/MODEL_CARD.md` documents the VAE architecture, its SHA256, and how it was
 derived from the original non-pixel-shuffle VAE.
-
-If you distribute the weights outside this repository (they total 589 MB, above GitHub's
-100 MB per-file limit), restore them to the paths above after cloning, and enable the
-`model/**/*.pt` rule in `.gitignore` so they stay out of git.
 
 ## Quick start
 
